@@ -66,6 +66,7 @@ class SentimentViewSet(viewsets.ModelViewSet):
     """
     queryset = Sentiment.objects.all().order_by('id')
     serializer_class = SentimentSerializer
+    lookup_field = 'unit'
 
 class DictionaryViewSet(viewsets.ModelViewSet):
     """
