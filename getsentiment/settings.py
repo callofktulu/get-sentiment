@@ -74,20 +74,31 @@ WSGI_APPLICATION = 'getsentiment.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+#postgres-postgresmaster
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': 'getsentiment',
+#         'HOST': 'getsentiment.czitpyohazmi.eu-west-3.rds.amazonaws.com,1433',
+#         'USER': 'tugrulsa',
+#         'PASSWORD': 'sofraciboybeyekmekcibasi07==+tugrulerturk',
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 17 for SQL Server', 
+#             }
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'getsentiment',
-        'HOST': 'getsentiment.czitpyohazmi.eu-west-3.rds.amazonaws.com,1433',
-        'USER': 'tugrulsa',
-        'PASSWORD': 'sofraciboybeyekmekcibasi07==+tugrulerturk',
+        'ENGINE': 'django.db.backends.postgresql',
         'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server', 
-            }
+            'options': '-c search_path=dbo'
+        },
+        'NAME': 'sentiment-analyzer',
+        'HOST': 'sentiment-analyzer.czitpyohazmi.eu-west-3.rds.amazonaws.com,5432',
+        'USER': 'postgres',
+        'PASSWORD': 'postgresmaster',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
